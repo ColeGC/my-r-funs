@@ -1,3 +1,7 @@
+## Takes a SQL script and applies formatting rules
+## Arguments (in terms likes 'terms2upcase') made to UPCASE
+## Table and variable names to lowcase
+
 formatCase_sql <- function(d = script_dir, f = script_file) {
   d1 <- ifelse(grepl("[/\\]$", d), d, paste0(d, "/"))
   f1 <- ifelse(grepl(".sql$", f, ignore.case = TRUE), gsub(".sql$", "", f), f)
@@ -24,6 +28,6 @@ formatCase_sql <- function(d = script_dir, f = script_file) {
   writeLines(script_fmt, paste0(d1, f1, "_format.sql"))
 }
 
-script_dir <- "C:/Users/ColeGC/Dropbox (Personal)/Research/Breast Cancer and upper Extremity/Project/SQL Scripts"
-script_file1 <- "Create Table of CMS Shoulder Diagnoses.sql"
-formatCase_sql(d = script_dir, f = script_file1)
+# script_dir <- dir()
+# uglySQL <- "script_ugly.sql"
+# niceSQL <- formatCase_sql(d = script_dir, f = uglySQL)
